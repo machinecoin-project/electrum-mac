@@ -1,8 +1,8 @@
 {
     "dnsseed1.machinecoin.io": {
         "pruning": "-",
-        "s": "50004",
-        "t": "50003",
+        "s": "50002",
+        "t": "50001",
         "version": "1.2"
     }
 }
