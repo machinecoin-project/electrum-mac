@@ -83,10 +83,10 @@ setup(
     },
     scripts=['electrum-mac'],
     data_files=data_files,
-    description="Lightweight Litecoin Wallet",
+    description="Lightweight Machinecoin Wallet",
     author="Thomas Voegtlin",
     author_email="thomasv@electrum.org",
     license="MIT Licence",
     url="http://electrum-mac.org",
-    long_description="""Lightweight Litecoin Wallet"""
+    long_description="""Lightweight Machinecoin Wallet"""
 )

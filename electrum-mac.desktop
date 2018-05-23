@@ -2,18 +2,18 @@
 # sudo desktop-file-install electrum-mac.desktop
 
 [Desktop Entry]
-Comment=Lightweight Litecoin Client
+Comment=Lightweight Machinecoin Client
 Exec=sh -c "PATH=\"\\$HOME/.local/bin:\\$PATH\" electrum-mac %u"
-GenericName[en_US]=Litecoin Wallet
-GenericName=Litecoin Wallet
+GenericName[en_US]=Machinecoin Wallet
+GenericName=Machinecoin Wallet
 Icon=electrum-mac
-Name[en_US]=Electrum Litecoin Wallet
-Name=Electrum Litecoin Wallet
+Name[en_US]=Electrum Machinecoin Wallet
+Name=Electrum Machinecoin Wallet
 Categories=Finance;Network;
 StartupNotify=false
 Terminal=false
 Type=Application
-MimeType=x-scheme-handler/litecoin;
+MimeType=x-scheme-handler/machinecoin;
 Actions=Testnet;
 
 [Desktop Action Testnet]

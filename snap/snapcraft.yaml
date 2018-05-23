@@ -1,8 +1,8 @@
 name: electrum-mac
 version: master
-summary: Litecoin thin client
+summary: Machinecoin thin client
 description: |
-  Lightweight Litecoin client
+  Lightweight Machinecoin client
 
 grade: devel # must be 'stable' to release into candidate/stable channels
 confinement: strict

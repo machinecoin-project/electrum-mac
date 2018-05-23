@@ -1,7 +1,7 @@
-Electrum-MAC - Lightweight Litecoin client
+Electrum-MAC - Lightweight Machinecoin client
 ==========================================
 
-Electrum-MAC is a port of Electrum, the Bitcoin wallet, to Litecoin.
+Electrum-MAC is a port of Electrum, the Bitcoin wallet, to Machinecoin.
 
 ::
 
