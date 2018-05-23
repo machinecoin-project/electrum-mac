@@ -27,8 +27,8 @@ from PyQt5.QtGui import *
 import re
 from decimal import Decimal
 
-from electrum_ltc import bitcoin
-from electrum_ltc.util import bfh
+from electrum_mac import bitcoin
+from electrum_mac.util import bfh
 
 from .qrtextedit import ScanQRTextEdit
 from .completion_text_edit import CompletionTextEdit
@@ -89,7 +89,7 @@ class PayToEdit(CompletionTextEdit, ScanQRTextEdit):
             return bitcoin.TYPE_SCRIPT, script
 
     def parse_script(self, x):
-        from electrum_ltc.transaction import opcodes, push_script
+        from electrum_mac.transaction import opcodes, push_script
         script = ''
         for word in x.split():
             if word[0:3] == 'OP_':

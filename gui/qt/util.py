@@ -10,9 +10,9 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 
-from electrum_ltc.i18n import _
-from electrum_ltc.util import FileImportFailed, FileExportFailed
-from electrum_ltc.paymentrequest import PR_UNPAID, PR_PAID, PR_EXPIRED
+from electrum_mac.i18n import _
+from electrum_mac.util import FileImportFailed, FileExportFailed
+from electrum_mac.paymentrequest import PR_UNPAID, PR_PAID, PR_EXPIRED
 
 
 if platform.system() == 'Windows':
@@ -745,7 +745,7 @@ def import_meta_gui(electrum_window, title, importer, on_success):
 def export_meta_gui(electrum_window, title, exporter):
     filter_ = "JSON (*.json);;All files (*)"
     filename = electrum_window.getSaveFileName(_("Select file to save your {}").format(title),
-                                               'electrum-ltc_{}.json'.format(title), filter_)
+                                               'electrum-mac_{}.json'.format(title), filter_)
     if not filename:
         return
     try:

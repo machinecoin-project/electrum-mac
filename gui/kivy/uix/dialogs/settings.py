@@ -3,17 +3,17 @@ from kivy.factory import Factory
 from kivy.properties import ObjectProperty
 from kivy.lang import Builder
 
-from electrum_ltc.util import base_units_list
-from electrum_ltc.i18n import languages
-from electrum_ltc_gui.kivy.i18n import _
-from electrum_ltc.plugins import run_hook
-from electrum_ltc import coinchooser
+from electrum_mac.util import base_units_list
+from electrum_mac.i18n import languages
+from electrum_mac_gui.kivy.i18n import _
+from electrum_mac.plugins import run_hook
+from electrum_mac import coinchooser
 
 from .choice_dialog import ChoiceDialog
 
 Builder.load_string('''
 #:import partial functools.partial
-#:import _ electrum_ltc_gui.kivy.i18n._
+#:import _ electrum_mac_gui.kivy.i18n._
 
 <SettingsDialog@Popup>
     id: settings

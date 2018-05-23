@@ -24,9 +24,9 @@
 # CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from electrum_ltc.plugins import BasePlugin, hook
-from electrum_ltc.i18n import _
-from electrum_ltc.bitcoin import is_address
+from electrum_mac.plugins import BasePlugin, hook
+from electrum_mac.i18n import _
+from electrum_mac.bitcoin import is_address
 
 
 class HW_PluginBase(BasePlugin):

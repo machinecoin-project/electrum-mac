@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NAME_ROOT=electrum-ltc
+NAME_ROOT=electrum-mac
 PYTHON_VERSION=3.5.4
 
 # These settings probably don't need any change
@@ -19,13 +19,13 @@ set -e
 mkdir -p tmp
 cd tmp
 
-if [ -d ./electrum-ltc ]; then
-  rm ./electrum-ltc -rf
+if [ -d ./electrum-mac ]; then
+  rm ./electrum-mac -rf
 fi
 
-git clone https://github.com/pooler/electrum-ltc -b master
+git clone https://github.com/pooler/electrum-mac -b master
 
-pushd electrum-ltc
+pushd electrum-mac
 if [ ! -z "$1" ]; then
     git checkout $1
 fi
@@ -34,7 +34,7 @@ fi
 git submodule init
 git submodule update
 
-pushd ./contrib/deterministic-build/electrum-ltc-locale
+pushd ./contrib/deterministic-build/electrum-mac-locale
 for i in ./locale/*; do
     dir=$i/LC_MESSAGES
     mkdir -p $dir
@@ -47,18 +47,18 @@ echo "Last commit: $VERSION"
 find -exec touch -d '2000-11-11T11:11:11+00:00' {} +
 popd
 
-rm -rf $WINEPREFIX/drive_c/electrum-ltc
-cp -r electrum-ltc $WINEPREFIX/drive_c/electrum-ltc
-cp electrum-ltc/LICENCE .
-cp -r ./electrum-ltc/contrib/deterministic-build/electrum-ltc-locale/locale $WINEPREFIX/drive_c/electrum-ltc/lib/
-cp ./electrum-ltc/contrib/deterministic-build/electrum-ltc-icons/icons_rc.py $WINEPREFIX/drive_c/electrum-ltc/gui/qt/
+rm -rf $WINEPREFIX/drive_c/electrum-mac
+cp -r electrum-mac $WINEPREFIX/drive_c/electrum-mac
+cp electrum-mac/LICENCE .
+cp -r ./electrum-mac/contrib/deterministic-build/electrum-mac-locale/locale $WINEPREFIX/drive_c/electrum-mac/lib/
+cp ./electrum-mac/contrib/deterministic-build/electrum-mac-icons/icons_rc.py $WINEPREFIX/drive_c/electrum-mac/gui/qt/
 
 # Install frozen dependencies
 $PYTHON -m pip install -r ../../deterministic-build/requirements.txt
 
 $PYTHON -m pip install -r ../../deterministic-build/requirements-hw.txt
 
-pushd $WINEPREFIX/drive_c/electrum-ltc
+pushd $WINEPREFIX/drive_c/electrum-mac
 $PYTHON setup.py install
 popd
 
@@ -79,7 +79,7 @@ popd
 wine "$WINEPREFIX/drive_c/Program Files (x86)/NSIS/makensis.exe" /DPRODUCT_VERSION=$VERSION electrum.nsi
 
 cd dist
-mv electrum-ltc-setup.exe $NAME_ROOT-$VERSION-setup.exe
+mv electrum-mac-setup.exe $NAME_ROOT-$VERSION-setup.exe
 cd ..
 
 echo "Done."

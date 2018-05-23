@@ -28,7 +28,7 @@ import sys
 
 script_dir = os.path.dirname(os.path.realpath(__file__))
 is_bundle = getattr(sys, 'frozen', False)
-is_local = not is_bundle and os.path.exists(os.path.join(script_dir, "electrum-ltc.desktop"))
+is_local = not is_bundle and os.path.exists(os.path.join(script_dir, "electrum-mac.desktop"))
 is_android = 'ANDROID_DATA' in os.environ
 
 # move this back to gui/kivy/__init.py once plugins are moved
@@ -67,24 +67,24 @@ if not is_android:
 # load local module as electrum
 if is_local or is_android:
     import imp
-    imp.load_module('electrum_ltc', *imp.find_module('lib'))
-    imp.load_module('electrum_ltc_gui', *imp.find_module('gui'))
-    imp.load_module('electrum_ltc_plugins', *imp.find_module('plugins'))
+    imp.load_module('electrum_mac', *imp.find_module('lib'))
+    imp.load_module('electrum_mac_gui', *imp.find_module('gui'))
+    imp.load_module('electrum_mac_plugins', *imp.find_module('plugins'))
 
 
 
-from electrum_ltc import bitcoin, util
-from electrum_ltc import constants
-from electrum_ltc import SimpleConfig, Network
-from electrum_ltc.wallet import Wallet, Imported_Wallet
-from electrum_ltc.storage import WalletStorage, get_derivation_used_for_hw_device_encryption
-from electrum_ltc.util import print_msg, print_stderr, json_encode, json_decode, UserCancelled
-from electrum_ltc.util import set_verbosity, InvalidPassword
-from electrum_ltc.commands import get_parser, known_commands, Commands, config_variables
-from electrum_ltc import daemon
-from electrum_ltc import keystore
-from electrum_ltc.mnemonic import Mnemonic
-import electrum_ltc_plugins
+from electrum_mac import bitcoin, util
+from electrum_mac import constants
+from electrum_mac import SimpleConfig, Network
+from electrum_mac.wallet import Wallet, Imported_Wallet
+from electrum_mac.storage import WalletStorage, get_derivation_used_for_hw_device_encryption
+from electrum_mac.util import print_msg, print_stderr, json_encode, json_decode, UserCancelled
+from electrum_mac.util import set_verbosity, InvalidPassword
+from electrum_mac.commands import get_parser, known_commands, Commands, config_variables
+from electrum_mac import daemon
+from electrum_mac import keystore
+from electrum_mac.mnemonic import Mnemonic
+import electrum_mac_plugins
 
 # get password routine
 def prompt_password(prompt, confirm=True):
@@ -178,7 +178,7 @@ def init_daemon(config_options):
     storage = WalletStorage(config.get_wallet_path())
     if not storage.file_exists():
         print_msg("Error: Wallet file not found.")
-        print_msg("Type 'electrum-ltc create' to create a new wallet, or provide a path to a wallet with the -w option")
+        print_msg("Type 'electrum-mac create' to create a new wallet, or provide a path to a wallet with the -w option")
         sys.exit(0)
     if storage.is_encrypted():
         if storage.is_encrypted_with_hw_device():
@@ -216,7 +216,7 @@ def init_cmdline(config_options, server):
 
     if cmd.requires_wallet and not storage.file_exists():
         print_msg("Error: Wallet file not found.")
-        print_msg("Type 'electrum-ltc create' to create a new wallet, or provide a path to a wallet with the -w option")
+        print_msg("Type 'electrum-mac create' to create a new wallet, or provide a path to a wallet with the -w option")
         sys.exit(0)
 
     # important warning
@@ -329,7 +329,7 @@ def run_offline_command(config, config_options, plugins):
     return result
 
 def init_plugins(config, gui_name):
-    from electrum_ltc.plugins import Plugins
+    from electrum_mac.plugins import Plugins
     return Plugins(config, is_local or is_android, gui_name)
 
 
@@ -382,7 +382,7 @@ if __name__ == '__main__':
         config_options['portable'] = True
 
     if config_options.get('portable'):
-        config_options['electrum_path'] = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'electrum-ltc_data')
+        config_options['electrum_path'] = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'electrum-mac_data')
 
     # kivy sometimes freezes when we write to sys.stderr
     set_verbosity(config_options.get('verbose') and config_options.get('gui')!='kivy')
@@ -437,13 +437,13 @@ if __name__ == '__main__':
                 d = daemon.Daemon(config, fd, False)
                 d.start()
                 if config.get('websocket_server'):
-                    from electrum_ltc import websockets
+                    from electrum_mac import websockets
                     websockets.WebSocketServer(config, d.network).start()
                 if config.get('requests_dir'):
                     path = os.path.join(config.get('requests_dir'), 'index.html')
                     if not os.path.exists(path):
                         print("Requests directory not configured.")
-                        print("You can configure it using https://github.com/pooler/electrum-ltc-merchant")
+                        print("You can configure it using https://github.com/machinecoin-project/electrum-mac-merchant")
                         sys.exit(1)
                 d.join()
                 sys.exit(0)
@@ -465,7 +465,7 @@ if __name__ == '__main__':
         else:
             cmd = known_commands[cmdname]
             if cmd.requires_network:
-                print_msg("Daemon not running; try 'electrum-ltc daemon start'")
+                print_msg("Daemon not running; try 'electrum-mac daemon start'")
                 sys.exit(1)
             else:
                 plugins = init_plugins(config, 'cmdline')

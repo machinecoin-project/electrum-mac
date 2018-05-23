@@ -3,10 +3,10 @@ import curses, datetime, locale
 from decimal import Decimal
 import getpass
 
-import electrum_ltc as electrum
-from electrum_ltc.util import format_satoshis, set_verbosity
-from electrum_ltc.bitcoin import is_address, COIN, TYPE_ADDRESS
-from electrum_ltc import Wallet, WalletStorage
+import electrum_mac as electrum
+from electrum_mac.util import format_satoshis, set_verbosity
+from electrum_mac.bitcoin import is_address, COIN, TYPE_ADDRESS
+from electrum_mac import Wallet, WalletStorage
 
 _ = lambda x:x
 
@@ -20,7 +20,7 @@ class ElectrumGui:
         self.network = daemon.network
         storage = WalletStorage(config.get_wallet_path())
         if not storage.file_exists():
-            print("Wallet not found. try 'electrum-ltc create'")
+            print("Wallet not found. try 'electrum-mac create'")
             exit()
         if storage.is_encrypted():
             password = getpass.getpass('Password:', stream=None)

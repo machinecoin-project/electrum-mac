@@ -1,9 +1,9 @@
 from decimal import Decimal
 _ = lambda x:x
 #from i18n import _
-from electrum_ltc import WalletStorage, Wallet
-from electrum_ltc.util import format_satoshis, set_verbosity
-from electrum_ltc.bitcoin import is_address, COIN, TYPE_ADDRESS
+from electrum_mac import WalletStorage, Wallet
+from electrum_mac.util import format_satoshis, set_verbosity
+from electrum_mac.bitcoin import is_address, COIN, TYPE_ADDRESS
 import getpass, datetime
 
 # minimal fdisk like gui for console usage
@@ -16,7 +16,7 @@ class ElectrumGui:
         self.network = daemon.network
         storage = WalletStorage(config.get_wallet_path())
         if not storage.file_exists:
-            print("Wallet not found. try 'electrum-ltc create'")
+            print("Wallet not found. try 'electrum-mac create'")
             exit()
         if storage.is_encrypted():
             password = getpass.getpass('Password:', stream=None)
@@ -208,12 +208,12 @@ class ElectrumGui:
             print(_('Error'))
 
     def network_dialog(self):
-        print("use 'electrum-ltc setconfig server/proxy' to change your network settings")
+        print("use 'electrum-mac setconfig server/proxy' to change your network settings")
         return True
 
 
     def settings_dialog(self):
-        print("use 'electrum-ltc setconfig' to change your settings")
+        print("use 'electrum-mac setconfig' to change your settings")
         return True
 
     def password_dialog(self):

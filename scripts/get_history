@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 
 import sys
-from electrum_ltc import Network
-from electrum_ltc.util import json_encode, print_msg
-from electrum_ltc import bitcoin
+from electrum_mac import Network
+from electrum_mac.util import json_encode, print_msg
+from electrum_mac import bitcoin
 
 try:
     addr = sys.argv[1]

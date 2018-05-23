@@ -3,16 +3,16 @@ import hashlib
 import sys
 import traceback
 
-from electrum_ltc import bitcoin
-from electrum_ltc.bitcoin import TYPE_ADDRESS, int_to_hex, var_int
-from electrum_ltc.i18n import _
-from electrum_ltc.plugins import BasePlugin
-from electrum_ltc.keystore import Hardware_KeyStore
-from electrum_ltc.transaction import Transaction
-from electrum_ltc.wallet import Standard_Wallet
+from electrum_mac import bitcoin
+from electrum_mac.bitcoin import TYPE_ADDRESS, int_to_hex, var_int
+from electrum_mac.i18n import _
+from electrum_mac.plugins import BasePlugin
+from electrum_mac.keystore import Hardware_KeyStore
+from electrum_mac.transaction import Transaction
+from electrum_mac.wallet import Standard_Wallet
 from ..hw_wallet import HW_PluginBase
-from electrum_ltc.util import print_error, is_verbose, bfh, bh2u, versiontuple
-from electrum_ltc.base_wizard import ScriptTypeNotSupported
+from electrum_mac.util import print_error, is_verbose, bfh, bh2u, versiontuple
+from electrum_mac.base_wizard import ScriptTypeNotSupported
 
 try:
     import hid

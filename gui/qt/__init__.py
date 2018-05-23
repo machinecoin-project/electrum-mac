@@ -38,16 +38,16 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 import PyQt5.QtCore as QtCore
 
-from electrum_ltc.i18n import _, set_language
-from electrum_ltc.plugins import run_hook
-from electrum_ltc import WalletStorage
-from electrum_ltc.base_wizard import GoBack
-# from electrum_ltc.synchronizer import Synchronizer
-# from electrum_ltc.verifier import SPV
-# from electrum_ltc.util import DebugMem
-from electrum_ltc.util import (UserCancelled, print_error,
+from electrum_mac.i18n import _, set_language
+from electrum_mac.plugins import run_hook
+from electrum_mac import WalletStorage
+from electrum_mac.base_wizard import GoBack
+# from electrum_mac.synchronizer import Synchronizer
+# from electrum_mac.verifier import SPV
+# from electrum_mac.util import DebugMem
+from electrum_mac.util import (UserCancelled, print_error,
                                WalletFileException, BitcoinException)
-# from electrum_ltc.wallet import Abstract_Wallet
+# from electrum_mac.wallet import Abstract_Wallet
 
 from .installwizard import InstallWizard
 
@@ -98,7 +98,7 @@ class ElectrumGui:
         if hasattr(QtCore.Qt, "AA_ShareOpenGLContexts"):
             QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_ShareOpenGLContexts)
         if hasattr(QGuiApplication, 'setDesktopFileName'):
-            QGuiApplication.setDesktopFileName('electrum-ltc.desktop')
+            QGuiApplication.setDesktopFileName('electrum-mac.desktop')
         self.config = config
         self.daemon = daemon
         self.plugins = plugins
@@ -112,7 +112,7 @@ class ElectrumGui:
         # init tray
         self.dark_icon = self.config.get("dark_icon", False)
         self.tray = QSystemTrayIcon(self.tray_icon(), None)
-        self.tray.setToolTip('Electrum-LTC')
+        self.tray.setToolTip('Electrum-MAC')
         self.tray.activated.connect(self.tray_activated)
         self.build_tray_menu()
         self.tray.show()
@@ -134,7 +134,7 @@ class ElectrumGui:
             submenu.addAction(_("Close"), window.close)
         m.addAction(_("Dark/Light"), self.toggle_tray_icon)
         m.addSeparator()
-        m.addAction(_("Exit Electrum-LTC"), self.close)
+        m.addAction(_("Exit Electrum-MAC"), self.close)
 
     def tray_icon(self):
         if self.dark_icon:
