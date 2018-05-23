@@ -23,7 +23,7 @@ if [ -d ./electrum-mac ]; then
   rm ./electrum-mac -rf
 fi
 
-git clone https://github.com/pooler/electrum-mac -b master
+git clone https://github.com/machinecoin-project/electrum-mac -b master
 
 pushd electrum-mac
 if [ ! -z "$1" ]; then
