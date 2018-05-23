@@ -365,35 +365,8 @@
         "ZMW",
         "ZWL"
     ],
-    "CoinSpot": [
-        "AUD"
+    "CoinMarketCap": [
+        "USD",
+        "BTC"
     ],
-    "GoCoin": [
-        "USD"
-    ],
-    "HitBTC": [
-        "EUR",
-        "USD"
-    ],
-    "Kraken": [
-        "EUR",
-        "USD"
-    ],
-    "OKCoin": [
-        "USD"
-    ],
-    "MercadoBitcoin": [
-        "BRL"
-    ],
-    "QuadrigaCX": [
-        "CAD"
-    ],
-    "TheRockTrading": [
-        "EUR"
-    ],
-    "WEX": [
-        "EUR",
-        "RUB",
-        "USD"
-    ]
 }
