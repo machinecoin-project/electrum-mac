@@ -1,6 +1,6 @@
 [submodule "contrib/deterministic-build/electrum-mac-icons"]
 	path = contrib/deterministic-build/electrum-mac-icons
-	url = https://github.com/machinecoin-project/electrum-mac-icons
+	url = git://github.com/machinecoin-project/electrum-mac-icons.git
 [submodule "contrib/deterministic-build/electrum-mac-locale"]
 	path = contrib/deterministic-build/electrum-mac-locale
-	url = https://github.com/machinecoin-project/electrum-mac-locale
+	url = git://github.com/machinecoin-project/electrum-mac-locale.git
