@@ -4,5 +4,11 @@
         "s": "50002",
         "t": "50001",
         "version": "1.2"
+    },
+    "dnsseed2.machinecoin.io": {
+        "pruning": "-",
+        "s": "50002",
+        "t": "50001",
+        "version": "1.2"
     }
 }
